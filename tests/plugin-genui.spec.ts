@@ -179,7 +179,7 @@ describe('genui:fence section', () => {
     expect(await ctx.skills.list()).toEqual(expect.arrayContaining([
       expect.objectContaining({
         name: 'genui',
-        provider: 'dsh-genui',
+        provider: 'dsh-genui-bridge',
         source: 'bundled',
         invocation: {
           modelInvocable: true,
@@ -191,7 +191,7 @@ describe('genui:fence section', () => {
     const skill = await ctx.skills.get('genui')
     expect(skill).toMatchObject({
       name: 'genui',
-      provider: 'dsh-genui',
+      provider: 'dsh-genui-bridge',
       source: 'bundled',
     })
     expect(skill?.description).toContain('Preserve conversation language')
@@ -211,7 +211,7 @@ describe('genui:fence section', () => {
 
     expect((await ctx.skills.list()).find(skill => skill.name === 'genui')).toMatchObject({
       name: 'genui',
-      provider: 'dsh-genui',
+      provider: 'dsh-genui-bridge',
       source: 'bundled',
     })
     expect(await ctx.skills.get('genui')).toBeDefined()
@@ -265,13 +265,13 @@ describe('genui:fence section', () => {
     })
 
     const first = await ctx.plugin(GenUI)
-    expect([...routes.keys()]).toEqual(['/plugins/@changfenhuang/dsh-genui/assets'])
+    expect([...routes.keys()]).toEqual(['/plugins/@josee0617/dsh-genui-bridge/assets'])
 
     await first.dispose()
     expect(routes.size).toBe(0)
 
     const second = await ctx.plugin(GenUI)
-    expect([...routes.keys()]).toEqual(['/plugins/@changfenhuang/dsh-genui/assets'])
+    expect([...routes.keys()]).toEqual(['/plugins/@josee0617/dsh-genui-bridge/assets'])
     await second.dispose()
     expect(routes.size).toBe(0)
   })
@@ -289,7 +289,7 @@ describe('genui:fence section', () => {
       },
     })
     await vi.waitFor(() => {
-      expect(firstRoutes.get('/plugins/@changfenhuang/dsh-genui/assets')).toEqual(expect.objectContaining({ kind: 'prefix' }))
+      expect(firstRoutes.get('/plugins/@josee0617/dsh-genui-bridge/assets')).toEqual(expect.objectContaining({ kind: 'prefix' }))
     })
 
     await disposeFirstServer()
@@ -304,7 +304,7 @@ describe('genui:fence section', () => {
       },
     })
     await vi.waitFor(() => {
-      expect(replacementRoutes.get('/plugins/@changfenhuang/dsh-genui/assets')).toEqual(expect.objectContaining({ kind: 'prefix' }))
+      expect(replacementRoutes.get('/plugins/@josee0617/dsh-genui-bridge/assets')).toEqual(expect.objectContaining({ kind: 'prefix' }))
     })
 
     await genui.dispose()

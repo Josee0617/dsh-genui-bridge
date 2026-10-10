@@ -11,7 +11,7 @@ afterEach(() => {
   delete (window as unknown as Record<string, unknown>).__GenuiAssets__
 })
 
-const PLUGIN_ID = '@changfenhuang/dsh-genui'
+const PLUGIN_ID = '@josee0617/dsh-genui-bridge'
 
 describe('assetUrl', () => {
   it('returns the asset path without a query when the boot graph is absent', () => {
@@ -70,8 +70,8 @@ describe('idle prefetch', () => {
     prefetchGenuiAssets()
     const links = [...document.head.querySelectorAll('link[rel="prefetch"]')]
     expect(links.map(l => l.getAttribute('href'))).toEqual([
-      `/plugins/@changfenhuang/dsh-genui/assets/mermaid.js`,
-      `/plugins/@changfenhuang/dsh-genui/assets/three.js`,
+      `/plugins/@josee0617/dsh-genui-bridge/assets/mermaid.js`,
+      `/plugins/@josee0617/dsh-genui-bridge/assets/three.js`,
     ])
     expect(links.every(l => (l as HTMLLinkElement).as === 'script')).toBe(true)
     // idempotent: a second call adds nothing

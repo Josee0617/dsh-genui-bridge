@@ -15,7 +15,7 @@ import { fileURLToPath } from 'node:url'
 import type { UserConfig } from 'tsdown'
 import { transform } from 'lightningcss'
 
-const ID = '@changfenhuang/dsh-genui'
+const ID = '@josee0617/dsh-genui-bridge'
 const PROJECT_ROOT = dirname(fileURLToPath(import.meta.url))
 
 /** Module-table entries this bundle may leave external: platform seed rows
